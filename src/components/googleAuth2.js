@@ -29,7 +29,16 @@ class GoogleAuth2 extends Component {
     const { signIn, signOut } = this.props;
 
     if (isSignedIn) {
-      signIn();
+      const profile = this.auth.currentUser.get().getBasicProfile();
+
+      const id = profile.getId();
+      const name = profile.getName();
+      const email = profile.getEmail();
+      const image = profile.getImageUrl();
+
+      const user = { id, name, email, image };
+
+      signIn(user);
     } else {
       signOut();
     }
