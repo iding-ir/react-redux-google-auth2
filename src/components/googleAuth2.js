@@ -33,19 +33,15 @@ class GoogleAuth2 extends Component {
   };
 
   render() {
-    const { signInComponent, signOutComponent, isSignedIn } = this.props;
+    const { isSignedIn } = this.props;
 
-    const renderer = () => {
-      if (isSignedIn === null) {
-        return null;
-      } else if (isSignedIn) {
-        return <div onClick={this.auth.signOut}>{signOutComponent}</div>;
-      } else {
-        return <div onClick={this.auth.signIn}>{signInComponent}</div>;
-      }
-    };
-
-    return <div>{renderer()}</div>;
+    if (isSignedIn === null) {
+      return null;
+    } else if (isSignedIn) {
+      return <button onClick={this.auth.signOut}>Sign out</button>;
+    } else {
+      return <button onClick={this.auth.signIn}>Sign in</button>;
+    }
   }
 }
 
