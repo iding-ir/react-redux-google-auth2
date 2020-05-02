@@ -5,7 +5,7 @@ const INITIAL_STATE = {
   user: null,
 };
 
-const reducer = (state = INITIAL_STATE, action) => {
+export const googleAuth2Reducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case SIGN_IN:
       return {
@@ -23,5 +23,3 @@ const reducer = (state = INITIAL_STATE, action) => {
       return state;
   }
 };
-
-export default reducer;
