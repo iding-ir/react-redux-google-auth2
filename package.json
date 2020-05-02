@@ -1,6 +1,6 @@
 {
   "name": "react-redux-google-auth2",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "React and Redux Google Auth2 component.",
   "repository": {
     "type": "git",
@@ -37,7 +37,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "publish:npm": "babel src/components -d dist --copy-files"
+    "publish:npm": "babel src/components/googleAuth2 -d dist --copy-files"
   },
   "eslintConfig": {
     "extends": "react-app"
