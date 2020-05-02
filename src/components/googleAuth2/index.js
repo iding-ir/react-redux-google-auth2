@@ -45,14 +45,14 @@ class GoogleAuth2 extends Component {
   };
 
   render() {
-    const { isSignedIn } = this.props;
+    const { isSignedIn, signInText, signOutText } = this.props;
 
     if (isSignedIn === null) {
       return null;
     } else if (isSignedIn) {
-      return <button onClick={this.auth.signOut}>Sign out</button>;
+      return <button onClick={this.auth.signOut}>{signOutText}</button>;
     } else {
-      return <button onClick={this.auth.signIn}>Sign in</button>;
+      return <button onClick={this.auth.signIn}>{signInText}</button>;
     }
   }
 }
@@ -69,5 +69,10 @@ const mapDispatchToProps = (dispatch) =>
     },
     dispatch
   );
+
+GoogleAuth2.defaultProps = {
+  signInText: "Sign in",
+  signOutText: "Sign out",
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(GoogleAuth2);
