@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
-import { signIn, signOut } from "../actions/googleAuth2";
-import loadScript from "../utils/loadScript";
+import { signIn, signOut } from "../../actions/googleAuth2";
+import loadScript from "../../utils/loadScript";
 
 class GoogleAuth2 extends Component {
   componentDidMount() {
