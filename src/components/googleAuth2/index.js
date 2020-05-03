@@ -7,12 +7,14 @@ import loadScript from "../../utils/loadScript";
 
 class GoogleAuth2 extends Component {
   componentDidMount() {
-    loadScript("https://apis.google.com/js/api.js").then(() => {
+    const { url, clientId, scope } = this.props;
+
+    loadScript(url).then(() => {
       window.gapi.load("client:auth2", () => {
         window.gapi.client
           .init({
-            clientId: this.props.clientId,
-            scope: "email",
+            clientId,
+            scope,
           })
           .then(() => {
             this.auth = window.gapi.auth2.getAuthInstance();
@@ -85,6 +87,8 @@ const mapDispatchToProps = (dispatch) =>
   );
 
 GoogleAuth2.defaultProps = {
+  url: "https://apis.google.com/js/api.js",
+  scope: "email",
   signInText: "Sign in",
   signOutText: "Sign out",
   signInClass: "",
