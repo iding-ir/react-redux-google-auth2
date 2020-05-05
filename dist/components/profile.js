@@ -35,18 +35,18 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-var Card = /*#__PURE__*/function (_Component) {
-  _inherits(Card, _Component);
+var Profile = /*#__PURE__*/function (_Component) {
+  _inherits(Profile, _Component);
 
-  var _super = _createSuper(Card);
+  var _super = _createSuper(Profile);
 
-  function Card() {
-    _classCallCheck(this, Card);
+  function Profile() {
+    _classCallCheck(this, Profile);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(Card, [{
+  _createClass(Profile, [{
     key: "render",
     value: function render() {
       var _this$props = this.props,
@@ -57,20 +57,20 @@ var Card = /*#__PURE__*/function (_Component) {
       if (isSignedIn === true) {
         return /*#__PURE__*/_react.default.createElement("div", {
           className: classes
-        }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
+        }, /*#__PURE__*/_react.default.createElement("img", {
           src: user.image,
           alt: user.name
-        })), /*#__PURE__*/_react.default.createElement("span", null, user.name));
+        }), /*#__PURE__*/_react.default.createElement("span", null, user.name));
       }
 
       return "";
     }
   }]);
 
-  return Card;
+  return Profile;
 }(_react.Component);
 
-Card.defaultProps = {
+Profile.defaultProps = {
   classes: ""
 };
 
@@ -81,6 +81,6 @@ var mapStateToProps = function mapStateToProps(state) {
   };
 };
 
-var _default = (0, _reactRedux.connect)(mapStateToProps, {})(Card);
+var _default = (0, _reactRedux.connect)(mapStateToProps, {})(Profile);
 
 exports.default = _default;

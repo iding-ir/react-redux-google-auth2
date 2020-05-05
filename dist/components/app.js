@@ -13,7 +13,7 @@ var _signIn = _interopRequireDefault(require("./signIn"));
 
 var _signOut = _interopRequireDefault(require("./signOut"));
 
-var _card = _interopRequireDefault(require("./card"));
+var _profile = _interopRequireDefault(require("./profile"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -57,15 +57,19 @@ var App = /*#__PURE__*/function (_Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_googleAuth.default, {
+      return /*#__PURE__*/_react.default.createElement("div", {
+        className: "app"
+      }, /*#__PURE__*/_react.default.createElement(_googleAuth.default, {
         clientId: "978371680949-7iclvimbtnkiqncnnbf4v7tiibtt5vnp.apps.googleusercontent.com"
+      }), /*#__PURE__*/_react.default.createElement(_profile.default, {
+        classes: "profile"
       }), /*#__PURE__*/_react.default.createElement(_signIn.default, {
         text: "Login",
-        classes: "login"
+        classes: "button"
       }), /*#__PURE__*/_react.default.createElement(_signOut.default, {
         text: "Logout",
-        classes: "logout"
-      }), /*#__PURE__*/_react.default.createElement(_card.default, null));
+        classes: "button"
+      }));
     }
   }]);
 

@@ -10,6 +10,8 @@ var _stores = _interopRequireDefault(require("./stores"));
 
 var _app = _interopRequireDefault(require("./components/app"));
 
+require("./index.css");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _reactDom.default.render( /*#__PURE__*/_react.default.createElement(_reactRedux.Provider, {
