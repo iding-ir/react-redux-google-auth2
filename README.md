@@ -20,7 +20,7 @@ npm install react-redux-google-auth2 --save
 Later in your component:
 
 ```
-import GoogleAuth2 from "react-redux-google-auth2/components/googleAuth2"
+import { GoogleAuth2 } from "react-redux-google-auth2"
 ```
 
 and
@@ -32,7 +32,7 @@ and
 In reducers:
 
 ```
-import { googleAuth2Reducer } from "react-redux-google-auth2/reducers/googleAuth2";
+import { googleAuth2Reducer } from "react-redux-google-auth2";
 ```
 
 and

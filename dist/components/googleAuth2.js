@@ -11,9 +11,9 @@ var _reactRedux = require("react-redux");
 
 var _redux = require("redux");
 
-var _googleAuth = require("../../actions/googleAuth2");
+var _googleAuth = require("../actions/googleAuth2");
 
-var _loadScript = _interopRequireDefault(require("../../utils/loadScript"));
+var _loadScript = _interopRequireDefault(require("../utils/loadScript"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

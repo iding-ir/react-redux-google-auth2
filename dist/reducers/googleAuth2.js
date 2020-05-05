@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.googleAuth2Reducer = void 0;
+exports.default = void 0;
 
 var _constants = require("../constants");
 
@@ -18,7 +18,7 @@ var INITIAL_STATE = {
   user: null
 };
 
-var googleAuth2Reducer = function googleAuth2Reducer() {
+var reducer = function reducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : INITIAL_STATE;
   var action = arguments.length > 1 ? arguments[1] : undefined;
 
@@ -40,4 +40,5 @@ var googleAuth2Reducer = function googleAuth2Reducer() {
   }
 };
 
-exports.googleAuth2Reducer = googleAuth2Reducer;
+var _default = reducer;
+exports.default = _default;
