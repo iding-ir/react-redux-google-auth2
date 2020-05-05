@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports.default = exports.GoogleAuth2 = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
@@ -115,35 +115,23 @@ var GoogleAuth2 = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this$props3 = this.props,
-          isSignedIn = _this$props3.isSignedIn,
-          signInText = _this$props3.signInText,
-          signOutText = _this$props3.signOutText,
-          signInClass = _this$props3.signInClass,
-          signOutClass = _this$props3.signOutClass;
-
-      if (isSignedIn === null) {
-        return null;
-      } else if (isSignedIn) {
-        return /*#__PURE__*/_react.default.createElement("button", {
-          className: signOutClass,
-          onClick: this.auth.signOut
-        }, signOutText);
-      } else {
-        return /*#__PURE__*/_react.default.createElement("button", {
-          className: signInClass,
-          onClick: this.auth.signIn
-        }, signInText);
-      }
+      return "";
     }
   }]);
 
   return GoogleAuth2;
 }(_react.Component);
 
+exports.GoogleAuth2 = GoogleAuth2;
+GoogleAuth2.defaultProps = {
+  url: "https://apis.google.com/js/api.js",
+  scope: "email"
+};
+
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    isSignedIn: state.googleAuth2.isSignedIn
+    isSignedIn: state.googleAuth2.isSignedIn,
+    user: state.googleAuth2.user
   };
 };
 
@@ -152,15 +140,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     signIn: _googleAuth.signIn,
     signOut: _googleAuth.signOut
   }, dispatch);
-};
-
-GoogleAuth2.defaultProps = {
-  url: "https://apis.google.com/js/api.js",
-  scope: "email",
-  signInText: "Sign in",
-  signOutText: "Sign out",
-  signInClass: "",
-  signOutClass: ""
 };
 
 var _default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(GoogleAuth2);

@@ -7,15 +7,7 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _googleAuth = _interopRequireDefault(require("./googleAuth2"));
-
-var _signIn = _interopRequireDefault(require("./signIn"));
-
-var _signOut = _interopRequireDefault(require("./signOut"));
-
-var _card = _interopRequireDefault(require("./card"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _reactRedux = require("react-redux");
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
 
@@ -43,34 +35,52 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-var App = /*#__PURE__*/function (_Component) {
-  _inherits(App, _Component);
+var Card = /*#__PURE__*/function (_Component) {
+  _inherits(Card, _Component);
 
-  var _super = _createSuper(App);
+  var _super = _createSuper(Card);
 
-  function App() {
-    _classCallCheck(this, App);
+  function Card() {
+    _classCallCheck(this, Card);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(App, [{
+  _createClass(Card, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_googleAuth.default, {
-        clientId: "978371680949-7iclvimbtnkiqncnnbf4v7tiibtt5vnp.apps.googleusercontent.com"
-      }), /*#__PURE__*/_react.default.createElement(_signIn.default, {
-        text: "Login",
-        classes: "login"
-      }), /*#__PURE__*/_react.default.createElement(_signOut.default, {
-        text: "Logout",
-        classes: "logout"
-      }), /*#__PURE__*/_react.default.createElement(_card.default, null));
+      var _this$props = this.props,
+          isSignedIn = _this$props.isSignedIn,
+          user = _this$props.user,
+          classes = _this$props.classes;
+
+      if (isSignedIn === true) {
+        return /*#__PURE__*/_react.default.createElement("div", {
+          className: classes
+        }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("img", {
+          src: user.image,
+          alt: user.name
+        })), /*#__PURE__*/_react.default.createElement("span", null, user.name));
+      }
+
+      return "";
     }
   }]);
 
-  return App;
+  return Card;
 }(_react.Component);
 
-var _default = App;
+Card.defaultProps = {
+  classes: ""
+};
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    isSignedIn: state.googleAuth2.isSignedIn,
+    user: state.googleAuth2.user
+  };
+};
+
+var _default = (0, _reactRedux.connect)(mapStateToProps, {})(Card);
+
 exports.default = _default;

@@ -5,21 +5,13 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _react = _interopRequireWildcard(require("react"));
+var _react = _interopRequireDefault(require("react"));
 
-var _googleAuth = _interopRequireDefault(require("./googleAuth2"));
+var _reactRedux = require("react-redux");
 
-var _signIn = _interopRequireDefault(require("./signIn"));
-
-var _signOut = _interopRequireDefault(require("./signOut"));
-
-var _card = _interopRequireDefault(require("./card"));
+var _googleAuth = require("./googleAuth2");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function _getRequireWildcardCache() { return cache; }; return cache; }
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -43,34 +35,50 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
-var App = /*#__PURE__*/function (_Component) {
-  _inherits(App, _Component);
+var SignIn = /*#__PURE__*/function (_GoogleAuth) {
+  _inherits(SignIn, _GoogleAuth);
 
-  var _super = _createSuper(App);
+  var _super = _createSuper(SignIn);
 
-  function App() {
-    _classCallCheck(this, App);
+  function SignIn() {
+    _classCallCheck(this, SignIn);
 
     return _super.apply(this, arguments);
   }
 
-  _createClass(App, [{
+  _createClass(SignIn, [{
     key: "render",
     value: function render() {
-      return /*#__PURE__*/_react.default.createElement(_react.default.Fragment, null, /*#__PURE__*/_react.default.createElement(_googleAuth.default, {
-        clientId: "978371680949-7iclvimbtnkiqncnnbf4v7tiibtt5vnp.apps.googleusercontent.com"
-      }), /*#__PURE__*/_react.default.createElement(_signIn.default, {
-        text: "Login",
-        classes: "login"
-      }), /*#__PURE__*/_react.default.createElement(_signOut.default, {
-        text: "Logout",
-        classes: "logout"
-      }), /*#__PURE__*/_react.default.createElement(_card.default, null));
+      var _this$props = this.props,
+          isSignedIn = _this$props.isSignedIn,
+          text = _this$props.text,
+          classes = _this$props.classes;
+
+      if (isSignedIn === false) {
+        return /*#__PURE__*/_react.default.createElement("button", {
+          className: classes,
+          onClick: this.auth.signIn
+        }, text);
+      }
+
+      return "";
     }
   }]);
 
-  return App;
-}(_react.Component);
+  return SignIn;
+}(_googleAuth.GoogleAuth2);
 
-var _default = App;
+SignIn.defaultProps = {
+  text: "Sign in",
+  classes: ""
+};
+
+var mapStateToProps = function mapStateToProps(state) {
+  return {
+    isSignedIn: state.googleAuth2.isSignedIn
+  };
+};
+
+var _default = (0, _reactRedux.connect)(mapStateToProps, {})(SignIn);
+
 exports.default = _default;

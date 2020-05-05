@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import GoogleAuth2 from "./googleAuth2";
 import SignIn from "./signIn";
 import SignOut from "./signOut";
-import Card from "./card";
+import Profile from "./profile";
 
 class App extends Component {
   render() {
@@ -15,7 +15,7 @@ class App extends Component {
 
         <SignOut text="Logout" classes="logout" />
 
-        <Card />
+        <Profile />
       </>
     );
   }
