@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 
 class Profile extends Component {
   render() {
-    const { isSignedIn, user, classes } = this.props;
+    const { isSignedIn, user, classes, onClick } = this.props;
 
     if (isSignedIn === true) {
       return (
-        <div className={classes}>
+        <div className={classes} onClick={onClick}>
           <img src={user.image} alt={user.name} title={user.name} />
 
           <span title={user.email}>{user.name}</span>

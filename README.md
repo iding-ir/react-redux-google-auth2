@@ -80,9 +80,10 @@ SignOut:
 
 Profile:
 
-| Property | Type   | Default |
-| :------- | :----- | :------ |
-| classes  | String |         |
+| Property | Type     | Default |
+| :------- | :------- | :------ |
+| classes  | String   |         |
+| onClick  | function |         |
 
 ## Examples
 
