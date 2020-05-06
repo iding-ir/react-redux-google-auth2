@@ -8,9 +8,9 @@ class Profile extends Component {
     if (isSignedIn === true) {
       return (
         <div className={classes}>
-          <img src={user.image} alt={user.name} />
+          <img src={user.image} alt={user.name} title={user.name} />
 
-          <span>{user.name}</span>
+          <span title={user.email}>{user.name}</span>
         </div>
       );
     }
