@@ -52,15 +52,20 @@ var Profile = /*#__PURE__*/function (_Component) {
       var _this$props = this.props,
           isSignedIn = _this$props.isSignedIn,
           user = _this$props.user,
-          classes = _this$props.classes;
+          classes = _this$props.classes,
+          onClick = _this$props.onClick;
 
       if (isSignedIn === true) {
         return /*#__PURE__*/_react.default.createElement("div", {
-          className: classes
+          className: classes,
+          onClick: onClick
         }, /*#__PURE__*/_react.default.createElement("img", {
           src: user.image,
-          alt: user.name
-        }), /*#__PURE__*/_react.default.createElement("span", null, user.name));
+          alt: user.name,
+          title: user.name
+        }), /*#__PURE__*/_react.default.createElement("span", {
+          title: user.email
+        }, user.name));
       }
 
       return "";

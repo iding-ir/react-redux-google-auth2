@@ -57,12 +57,17 @@ var App = /*#__PURE__*/function (_Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
+      var onClick = function onClick() {
+        alert("onClick callback");
+      };
+
       return /*#__PURE__*/_react.default.createElement("div", {
         className: "app"
       }, /*#__PURE__*/_react.default.createElement(_googleAuth.default, {
         clientId: "978371680949-7iclvimbtnkiqncnnbf4v7tiibtt5vnp.apps.googleusercontent.com"
       }), /*#__PURE__*/_react.default.createElement(_profile.default, {
-        classes: "profile"
+        classes: "profile",
+        onClick: onClick
       }), /*#__PURE__*/_react.default.createElement(_signIn.default, {
         text: "Login",
         classes: "button"
