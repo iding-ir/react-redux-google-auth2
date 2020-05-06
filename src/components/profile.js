@@ -15,7 +15,7 @@ class Profile extends Component {
       );
     }
 
-    return "";
+    return null;
   }
 }
 
