@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = exports.GoogleAuth2 = exports.authInstance = void 0;
+exports.default = exports.authInstance = void 0;
 
 var _react = require("react");
 
@@ -120,7 +120,6 @@ var GoogleAuth2 = /*#__PURE__*/function (_Component) {
   return GoogleAuth2;
 }(_react.Component);
 
-exports.GoogleAuth2 = GoogleAuth2;
 GoogleAuth2.defaultProps = {
   url: "https://apis.google.com/js/api.js",
   scope: "email"
