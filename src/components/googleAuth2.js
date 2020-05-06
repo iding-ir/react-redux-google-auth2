@@ -1,22 +1,24 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 
 import { signIn, signOut } from "../actions/googleAuth2";
 import loadScript from "../utils/loadScript";
 
-export class GoogleAuth2 extends Component {
+export let authInstance;
+
+class GoogleAuth2 extends Component {
   componentDidMount() {
     const { url, clientId, scope } = this.props;
 
     loadScript(url).then(() => {
       window.gapi.load("client:auth2", () => {
         window.gapi.client.init({ clientId, scope }).then(() => {
-          this.auth = window.gapi.auth2.getAuthInstance();
+          authInstance = window.gapi.auth2.getAuthInstance();
 
-          this.onAuthChange(this.auth.isSignedIn.get());
+          this.onAuthChange(authInstance.isSignedIn.get());
 
-          this.auth.isSignedIn.listen(this.onAuthChange);
+          authInstance.isSignedIn.listen(this.onAuthChange);
         });
       });
     });
@@ -26,7 +28,7 @@ export class GoogleAuth2 extends Component {
     const { signIn, signOut } = this.props;
 
     if (isSignedIn) {
-      const profile = this.auth.currentUser.get().getBasicProfile();
+      const profile = authInstance.currentUser.get().getBasicProfile();
 
       const id = profile.getId();
       const name = profile.getName();
@@ -42,7 +44,7 @@ export class GoogleAuth2 extends Component {
   };
 
   render() {
-    return "";
+    return null;
   }
 }
 

@@ -1,21 +1,21 @@
-import React from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { GoogleAuth2 } from "./googleAuth2";
+import { authInstance } from "./googleAuth2";
 
-class SignOut extends GoogleAuth2 {
+class SignOut extends Component {
   render() {
     const { isSignedIn, text, classes } = this.props;
 
     if (isSignedIn === true) {
       return (
-        <button className={classes} onClick={this.auth.signOut}>
+        <button className={classes} onClick={authInstance.signOut}>
           {text}
         </button>
       );
     }
 
-    return "";
+    return null;
   }
 }
 
