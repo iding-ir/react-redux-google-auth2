@@ -13,7 +13,7 @@ class App extends Component {
 
     return (
       <div className="app">
-        <GoogleAuth2 clientId="978371680949-7iclvimbtnkiqncnnbf4v7tiibtt5vnp.apps.googleusercontent.com" />
+        <GoogleAuth2 clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID} />
 
         <Profile classes="profile" onClick={onClick} />
 
