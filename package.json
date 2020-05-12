@@ -2,10 +2,6 @@
   "name": "react-redux-google-auth2",
   "version": "1.2.1",
   "description": "React and Redux Google Auth2 component.",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/iding-ir/react-redux-google-auth2.git"
-  },
   "keywords": [
     "react",
     "redux",
@@ -19,6 +15,10 @@
     "url": "http://iding.ir"
   },
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iding-ir/react-redux-google-auth2.git"
+  },
   "bugs": {
     "url": "https://github.com/iding-ir/react-redux-google-auth2/issues"
   },
@@ -31,6 +31,15 @@
     "react-redux": "^7.2.0",
     "react-scripts": "3.4.1",
     "redux": "^4.0.5"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "babel-plugin-transform-class-properties": "^6.24.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -62,14 +71,5 @@
     "plugins": [
       "@babel/plugin-proposal-class-properties"
     ]
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/preset-react": "^7.9.4",
-    "@babel/core": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "babel-loader": "^8.0.2",
-    "babel-plugin-transform-class-properties": "^6.24.1"
   }
 }
