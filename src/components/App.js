@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
-import GoogleAuth2 from "./googleAuth2";
-import SignIn from "./signIn";
-import SignOut from "./signOut";
-import Profile from "./profile";
+import GoogleAuth2 from "./GoogleAuth2";
+import SignIn from "./SignIn";
+import SignOut from "./SignOut";
+import Profile from "./Profile";
 
 class App extends Component {
   render() {

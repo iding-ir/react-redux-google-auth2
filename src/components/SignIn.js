@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { authInstance } from "./googleAuth2";
+import { authInstance } from "./GoogleAuth2";
 
 class SignIn extends Component {
   render() {
