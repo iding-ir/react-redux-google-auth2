@@ -33,11 +33,11 @@ and
 ```
 <GoogleAuth2 clientId="ENTER YOUR CLIENT_ID HERE" />
 
-<Profile classes="profile" />
+<Profile className="profile" />
 
-<SignIn text="Login" classes="button" />
+<SignIn text="Login" className="button" />
 
-<SignOut text="Logout" classes="button" />
+<SignOut text="Logout" className="button" />
 ```
 
 In reducers:
@@ -66,24 +66,23 @@ GoogleAuth2:
 
 SignIn:
 
-| Property | Type   | Default   |
-| :------- | :----- | :-------- |
-| text     | String | "Sign in" |
-| classes  | String |           |
+| Property  | Type   | Default   |
+| :-------- | :----- | :-------- |
+| text      | String | "Sign in" |
+| className | String |           |
 
 SignOut:
 
-| Property | Type   | Default    |
-| :------- | :----- | :--------- |
-| text     | String | "Sign out" |
-| classes  | String |            |
+| Property  | Type   | Default    |
+| :-------- | :----- | :--------- |
+| text      | String | "Sign out" |
+| className | String |            |
 
 Profile:
 
-| Property | Type     | Default |
-| :------- | :------- | :------ |
-| classes  | String   |         |
-| onClick  | function |         |
+| Property  | Type     | Default |
+| :-------- | :------- | :------ |
+| className | String   |         |
 
 ## Examples
 
