@@ -1,11 +1,18 @@
 import { SIGN_IN, SIGN_OUT } from "../constants";
+import { IActionUser } from "../actions/googleAuth2";
+import { User } from "../components/GoogleAuth2";
 
-const INITIAL_STATE = {
+export interface IStateGoogleAuth2 {
+  isSignedIn: boolean,
+  user: User,
+}
+
+const initialState = {
   isSignedIn: null,
   user: null,
 };
 
-const reducer = (state = INITIAL_STATE, action) => {
+const reducer = (state = initialState, action: IActionUser) => {
   switch (action.type) {
     case SIGN_IN:
       return {

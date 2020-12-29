@@ -1,4 +1,4 @@
-export default (src) => {
+export default (src: string) => {
   return new Promise((resolve, reject) => {
     let head = document.getElementsByTagName("head")[0];
     let script = document.createElement("script");
@@ -6,7 +6,7 @@ export default (src) => {
     script.type = "text/javascript";
     script.src = src;
     script.onload = () => {
-      resolve();
+      resolve(null);
     };
 
     head.appendChild(script);
