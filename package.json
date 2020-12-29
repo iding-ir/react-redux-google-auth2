@@ -1,6 +1,6 @@
 {
   "name": "react-redux-google-auth2",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "React and Redux Google Auth2 component.",
   "keywords": [
     "react",
@@ -45,6 +45,7 @@
     "@babel/plugin-proposal-class-properties": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.8.3",
     "@types/react-redux": "^7.1.14",
     "babel-loader": "^8.0.2",
     "babel-plugin-transform-class-properties": "^6.24.1"
@@ -54,10 +55,13 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "publish:npm": "babel src -d dist --copy-files"
+    "publish:npm": "babel src --out-dir dist --extensions \".ts,.tsx\" --source-maps inline && tsc --project tsconfig.types.json"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
   "browserslist": {
     "production": [
@@ -74,7 +78,8 @@
   "babel": {
     "presets": [
       "@babel/preset-env",
-      "@babel/preset-react"
+      "@babel/preset-react",
+      "@babel/preset-typescript"
     ],
     "plugins": [
       "@babel/plugin-proposal-class-properties"
